@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142D4E">
+  <meta name="description" content="MémoCampus — Ton espace personnel d'apprentissage.">
+
+  <title>MémoCampus — Campus Pro</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="brand">
+        <div class="brand-logo">MC</div>
+        <div>
+          <strong>MémoCampus</strong>
+          <span>CAMPUS PRO</span>
+        </div>
+      </div>
+
+      <div class="sidebar-heading">ESPACE PERSONNEL</div>
+
+      <nav class="navigation">
+
+        <button class="nav-link active" data-page="dashboard">
+          <span>Accueil</span>
+        </button>
+
+        <button class="nav-link" data-page="courses">
+          <span>Mes cours</span>
+        </button>
+
+        <button class="nav-link" data-page="files">
+          <span>Mes fichiers</span>
+        </button>
+
+        <button class="nav-link" data-page="websites">
+          <span>Sites web</span>
+        </button>
+
+        <button class="nav-link" data-page="notes">
+          <span>Fiches de révision</span>
+        </button>
+
+        <button class="nav-link" data-page="quiz">
+          <span>Quiz</span>
+        </button>
+
+        <button class="nav-link" data-page="mindmap">
+          <span>Cartes mentales</span>
+        </button>
+
+        <button class="nav-link" data-page="progress">
+          <span>Progression</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="nav-link" data-page="ai">
+          Intelligence artificielle
+        </button>
+
+        <button class="nav-link" data-page="settings">
+          Paramètres
+        </button>
+
+        <div class="sidebar-footer">
+          MÉMOCAMPUS · CAMPUS PRO
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main-area">
+
+      <header class="topbar">
+
+        <button class="menu-button" id="menu-button"
+          aria-label="Ouvrir le menu">
+          ☰
+        </button>
+
+        <div class="breadcrumb">
+          Mon espace / <strong id="page-title">Accueil</strong>
+        </div>
+
+        <div class="topbar-right">
+          <span class="status-indicator"></span>
+          <span>Mon campus</span>
+        </div>
+
+      </header>
+
+      <div class="page-container">
+
+        <!-- ACCUEIL -->
+
+        <section class="page active" id="page-dashboard">
+
+          <div class="welcome-banner">
+            <div>
+              <span class="eyebrow">BIENVENUE SUR TON CAMPUS</span>
+              <h1>Bonjour et bienvenue !</h1>
+              <p>
+                Ton espace personnel pour apprendre,
+                organiser tes cours et progresser.
+              </p>
+            </div>
+
+            <div class="train-decoration">
+              MÉMOCAMPUS
+              <div class="train-line"></div>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <h2>Mon espace de travail</h2>
+              <p>Retrouve rapidement tes outils.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+
+            <article class="dashboard-card">
+              <span class="card-number">01</span>
+              <h3>Mes cours</h3>
+              <p>Organise tes matières et tes leçons.</p>
+              <button data-go="courses">Accéder aux cours</button>
+            </article>
+
+            <article class="dashboard-card">
+              <span class="card-number">02</span>
+              <h3>Mes fichiers</h3>
+              <p>Retrouve tes documents scolaires.</p>
+              <button data-go="files">Voir mes fichiers</button>
+            </article>
+
+            <article class="dashboard-card">
+              <span class="card-number">03</span>
+              <h3>Mes révisions</h3>
+              <p>Prépare tes fiches et tes quiz.</p>
+              <button data-go="notes">Réviser</button>
+            </article>
+
+            <article class="dashboard-card">
+              <span class="card-number">04</span>
+              <h3>Intelligence artificielle</h3>
+              <p>Un assistant pour travailler tes cours.</p>
+              <button data-go="ai">Découvrir l'IA</button>
+            </article>
+
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <h2>Mon activité</h2>
+              <p>Un aperçu de ton espace personnel.</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span>Mes cours</span>
+              <strong id="stat-courses">0</strong>
+            </div>
+
+            <div class="stat-card">
+              <span>Mes fichiers</span>
+              <strong id="stat-files">0</strong>
+            </div>
+
+            <div class="stat-card">
+              <span>Mes fiches</span>
+              <strong id="stat-notes">0</strong>
+            </div>
+
+            <div class="stat-card">
+              <span>Mes quiz</span>
+              <strong id="stat-quizzes">0</strong>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- COURS -->
+
+        <section class="page" id="page-courses">
+          <div class="page-heading">
+            <h1>Mes cours</h1>
+            <p>Organise tes matières et tes apprentissages.</p>
+          </div>
+
+          <form id="course-form" class="content-form">
+            <input id="course-name" type="text"
+              placeholder="Nom de la matière" required>
+            <button type="submit">Ajouter un cours</button>
+          </form>
+
+          <div id="courses-list" class="item-list"></div>
+        </section>
+
+        <!-- FICHIERS -->
+
+        <section class="page" id="page-files">
+          <div class="page-heading">
+            <h1>Mes fichiers</h1>
+            <p>Centralise tes documents scolaires.</p>
+          </div>
+
+          <div class="upload-zone">
+            <h3>Importer un document</h3>
+            <p>Sélectionne un fichier depuis ton appareil.</p>
+
+            <input id="file-input" type="file" multiple>
+
+            <p class="small-info">
+              PDF, DOCX, XLSX, PPTX, TXT, images, audio
+              et autres formats selon leur compatibilité.
+            </p>
+          </div>
+
+          <div id="files-list" class="item-list"></div>
+        </section>
+
+        <!-- SITES WEB -->
+
+        <section class="page" id="page-websites">
+          <div class="page-heading">
+            <h1>Mes sites web</h1>
+            <p>Enregistre tes ressources Internet.</p>
+          </div>
+
+          <form id="website-form" class="content-form">
+            <input id="website-title" type="text"
+              placeholder="Nom du site" required>
+
+            <input id="website-url" type="url"
+              placeholder="https://exemple.fr" required>
+
+            <button type="submit">Ajouter le site</button>
+          </form>
+
+          <div id="websites-list" class="item-list"></div>
+        </section>
+
+        <!-- FICHES -->
+
+        <section class="page" id="page-notes">
+          <div class="page-heading">
+            <h1>Mes fiches de révision</h1>
+            <p>Prépare et conserve tes connaissances.</p>
+          </div>
+
+          <form id="note-form" class="content-form">
+            <input id="note-title" type="text"
+              placeholder="Titre de la fiche" required>
+
+            <textarea id="note-content"
+              placeholder="Contenu de ta fiche..."
+              required></textarea>
+
+            <button type="submit">Enregistrer la fiche</button>
+          </form>
+
+          <div id="notes-list" class="item-list"></div>
+        </section>
+
+        <!-- QUIZ -->
+
+        <section class="page" id="page-quiz">
+          <div class="page-heading">
+            <h1>Mes quiz</h1>
+            <p>Teste tes connaissances.</p>
+          </div>
+
+          <div id="quiz-list" class="item-list"></div>
+
+          <button data-go="ai">Créer un quiz avec l'IA</button>
+        </section>
+
+        <!-- CARTES MENTALES -->
+
+        <section class="page" id="page-mindmap">
+          <div class="page-heading">
+            <h1>Mes cartes mentales</h1>
+            <p>Organise tes idées et tes connaissances.</p>
+          </div>
+
+          <div id="mindmap-list" class="item-list"></div>
+        </section>
+
+        <!-- PROGRESSION -->
+
+        <section class="page" id="page-progress">
+          <div class="page-heading">
+            <h1>Ma progression</h1>
+            <p>Retrouve les statistiques de ton apprentissage.</p>
+          </div>
+
+          <div id="progress-content"></div>
+        </section>
+
+        <!-- IA -->
+
+        <section class="page" id="page-ai">
+          <div class="page-heading">
+            <h1>Intelligence artificielle</h1>
+            <p>Ton assistant pédagogique MémoCampus.</p>
+          </div>
+
+          <div class="ai-panel">
+            <h2>Assistant IA</h2>
+            <p>
+              Prépare des fiches de révision,
+              des résumés et des quiz à partir de tes cours.
+            </p>
+
+            <textarea id="ai-prompt"
+              placeholder="Que souhaites-tu travailler ?"></textarea>
+
+            <button id="ai-generate">
+              Générer avec l'IA
+            </button>
+
+            <div id="ai-result" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- PARAMÈTRES -->
+
+        <section class="page" id="page-settings">
+          <div class="page-heading">
+            <h1>Paramètres</h1>
+            <p>Configure ton espace personnel.</p>
+          </div>
+
+          <div class="settings-panel">
+            <h3>Mes données</h3>
+            <p>
+              Tes données sont conservées localement
+              dans ton navigateur sur cet appareil.
+            </p>
+
+            <button id="export-data">Exporter mes données</button>
+            <button id="import-data">Importer une sauvegarde</button>
+            <input id="backup-input" type="file"
+              accept=".json" hidden>
+          </div>
+
+        </section>
+
+      </div>
+
+      <footer class="main-footer">
+        MémoCampus — Campus Pro
+        <span>Ton espace personnel d'apprentissage</span>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
